@@ -12,5 +12,8 @@ There are 3 important files within the repo:
 4. Input desired sentence in final cell of chatbot_load.ipynb.
 5. When finished, stop cell running to stop the chatbot.
 
-# Things to keep in mind
+# Code adapted from:
+https://www.geeksforgeeks.org/deploy-a-chatbot-using-tensorflow-in-python/
+
+# Things to keep in mind:
 The Zen of Python: https://peps.python.org/pep-0020/
