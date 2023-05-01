@@ -1,0 +1,22 @@
+{"intents": [
+    {
+        "tag": "greeting",
+        "patterns": ["Hi there", "Hello", "Greetings", "Hi", "Hey"],
+        "responses": ["Hello!", "Hi there! How can I help you?", "Hey! How can I assist you today?"]
+    },
+    {
+        "tag": "goodbye",
+        "patterns": ["Bye", "See you later", "Goodbye"],
+        "responses": ["Goodbye!", "See you soon!", "Take care!"]
+    },
+    {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "Thanks a lot"],
+        "responses": ["You're welcome!", "No problem!", "Glad to help!"]
+    },
+    {
+        "tag": "recommendation",
+        "patterns": ["Can you recommend something?", "What do you suggest?", "Any ideas?", "What's good?", "What's popular?", "What's trending?"],
+        "responses": ["Based on your previous transaction you may save upto", "Based on your previous purchases, you might like product Y.", "Product Z has been very popular among our customers.", "Our featured product this month is A. Would you like to learn more about it?"]
+    }
+]}
