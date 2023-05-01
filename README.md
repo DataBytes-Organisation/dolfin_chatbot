@@ -12,13 +12,13 @@ There are 3 important files within the repo:
 4. Input desired sentence in final cell of chatbot_load.ipynb.
 5. When finished, stop cell running to stop the chatbot.
 
-# To add Code:
+# To Add Code:
 1. Clone the repo and make your code changes.
 2. Push your code to a new branch of the repo using:
-git checkout -b feature_branch_name
-git add .
-git commit -m “some message about what you have done”
-git push -u origin feature_branch_name
+- git checkout -b feature_branch_name
+- git add .
+- git commit -m “some message about what you have done”
+- git push -u origin feature_branch_name
 3. Create a pull request to merge your branch to master branch
 
 # Code adapted from:
