@@ -1,22 +1,28 @@
 {"intents": [
     {
         "tag": "greeting",
-        "patterns": ["Hi there", "Hello", "Greetings", "Hi", "Hey"],
-        "responses": ["Hello!", "Hi there! How can I help you?", "Hey! How can I assist you today?"]
+        "patterns": ["Hi there", "Hello", "Greetings", "Hi", "Hey", "Good morning!", "Good afternoon!", "Good evening!", "What's up?"],
+        "responses": ["Hello!", "Hi there! How can I help you?", "Hey! How can I assist you today?","Hi there! How can I help you?", "Hey! What can I do for you?", "Good morning! How may I be of service?", "Good afternoon! How can I assist you?", "Good evening! How can I help you today?", "Not much, just here to assist you. How can I help?"]
+    },
+    {
+        "tag": "name",
+        "patterns": ["What is your name?", "What should I call you?", "Are you a bot?", "Are you a human or AI?"],
+        "responses": ["I'm just a chatbot, You can call me DolFin.", "You can call me DolFin, I'm just an AI assistant.", "Yes, I am a bot. How can I assist you?", "I'm an AI language model, not a human. How can I be of service?"]
     },
     {
         "tag": "goodbye",
-        "patterns": ["Bye", "See you later", "Goodbye"],
-        "responses": ["Goodbye!", "See you soon!", "Take care!"]
+        "patterns": ["Bye", "See you later", "Goodbye", "See you later!", "Bye for now."],
+        "responses": ["Goodbye!", "See you soon!", "Take care!", "Goodbye! If you need anything else, don't hesitate to return.", "See you later! Have a great day!", "Bye for now! Feel free to come back anytime if you need assistance."]
     },
     {
         "tag": "thanks",
         "patterns": ["Thanks", "Thank you", "Thanks a lot"],
-        "responses": ["You're welcome!", "No problem!", "Glad to help!"]
+        "responses": ["You're welcome!", "No problem!", "Glad to help!", "You're welcome! If you need further assistance, feel free to ask.", "No problem! Glad I could be of help.", "If you have any more questions, just let me know.", "You're welcome! It's my pleasure to assist you."]
     },
     {
         "tag": "recommendation",
-        "patterns": ["Can you recommend something?", "What do you suggest?", "Any ideas?", "What's good?", "What's popular?", "What's trending?"],
-        "responses": ["Based on your previous transaction you may save upto", "Based on your previous purchases, you might like product Y.", "Product Z has been very popular among our customers.", "Our featured product this month is A. Would you like to learn more about it?"]
+        "patterns": ["Can you recommend something?", "What do you suggest?", "What's trending?", "What are some investment options?", "How can I save money effectively?", "Can you help me create a budget?", "How do I plan for retirement?", "How can I improve my credit score?", "What are the best ways to reduce debt?", "Can you suggest some tax-saving strategies?", "How do I start investing in the stock market?"],
+        
+        "responses": ["Based on your previous transaction you may save upto", "Based on your previous purchases, you might like product Y.", "Our featured product this month is A. Would you like to learn more about it?", "Sure! There are various investment options available, such as stocks, bonds, mutual funds, and real estate. We can discuss which suits your financial goals best.", "Absolutely! Saving money effectively involves setting financial goals, budgeting, and exploring investment opportunities. Let's discuss the best approach for you.", "Of course! Budgeting is essential for financial success. I can help you create a personalized budget to manage your expenses and savings.", "Planning for retirement is crucial. I can guide you through retirement planning strategies, including retirement accounts and investment options. Let's get started!", "Improving your credit score involves responsible credit management. I can provide tips on how to build credit and maintain a healthy credit score.", "Reducing debt is an important financial goal. We can explore debt repayment strategies, consolidation options, and more to help you become debt-free.", "Certainly! There are several tax-saving strategies, such as investing in tax-efficient accounts and taking advantage of deductions. Let's find the best options for you.", "Investing in the stock market requires careful consideration. I can guide you through the basics, help you choose suitable investments, and manage risk."]
     }
 ]}
