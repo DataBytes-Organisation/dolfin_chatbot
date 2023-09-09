@@ -1,0 +1,217 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+
+- intent: thanks
+  examples: |
+    - Thanks
+    - Thank you
+    - Thanks a lot
+
+- intent: recommendation
+  examples: |
+    - Can you recommend something?
+    - What do you suggest?
+    - Any ideas?
+    - What's good?
+    - What's popular?
+    - What's trending?
+
+- intent: budget_creation
+  examples: |
+    - Can you help me create a budget based on my income and expenses?
+
+- intent: transaction_history
+  examples: |
+    - How do I view my transaction history?
+    - Can you show me my recent transactions?
+
+- intent: credit_score
+  examples: |
+    - How can I better understand my credit score and work to improve it?
+    - What's my credit score?
+    - Why is my credit score important?
+
+- intent: account_security
+  examples: |
+    - How can I protect my personal and financial information from fraud and identity theft?
+    - What security measures do you have in place?
+
+- intent: account_closing
+  examples: |
+    - What is the process for closing my account?
+    - I want to close my account.
+
+- intent: account_update
+  examples: |
+    - How do I update my personal information or contact details?
+    - I want to update my account information.
+
+- intent: dispute_error
+  examples: |
+    - How do I dispute an error on my credit report?
+    - There's an error on my credit report.
+
+- intent: bill_alerts
+  examples: |
+    - Can you send me alerts when there are significant changes to my account or when bills are due?
+    - I want to set up bill alerts.
+
+- intent: automatic_payments
+  examples: |
+    - How can I set up automatic payments to ensure bills are paid on time?
+    - I want to set up auto-pay.
+
+- intent: financial_goals
+  examples: |
+    - Can you help me set financial goals and track my progress towards them?
+    - I need help with financial planning.
+
+- intent: saving_money
+  examples: |
+    - What are some ways I can save money or earn more interest on my savings?
+    - How can I boost my savings?
+
+- intent: debt_plan
+  examples: |
+    - How can I set up a plan for paying off my debts, such as credit card balances or loans?
+    - I need help with debt management.
+
+- intent: expense_reduction
+  examples: |
+    - Can you help me find ways to reduce unnecessary expenses and save more money?
+    - How can I cut costs?
+
+- intent: credit_requirements
+  examples: |
+    - What are the credit score requirements for your loans or credit cards?
+    - Do I need a specific credit score to apply for a loan or credit card?
+
+- intent: new_account_requirements
+  examples: |
+    - What are the requirements for opening a new account?
+    - I want to open a new account.
+
+- intent: loan_application
+  examples: |
+    - How do I apply for a loan?
+    - I want to apply for a loan.
+
+- intent: credit_card_application
+  examples: |
+    - How do I apply for a credit card?
+    - I want to apply for a credit card.
+
+- intent: account_balance_check
+  examples: |
+    - How do I check my account balance?
+    - Can you tell me my account balance?
+
+- intent: account_management_online
+  examples: |
+    - What are the options for managing my account online?
+    - I want to manage my account online.
+
+- intent: customer_support_policy
+  examples: |
+    - What is your customer support policy?
+    - How can I contact you if I have questions or issues with my account?
+
+- intent: personalised_financial_advice
+  examples: |
+    - Can you provide me with personalised financial advice based on my situation?
+    - I need financial advice.
+
+- intent: account_statements
+  examples: |
+    - How do I view my transaction history or download account statements?
+    - I want to download my account statement.
+
