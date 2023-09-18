@@ -1,0 +1,142 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - thanks
+  - recommendation
+  - budget_creation
+  - transaction_history
+  - credit_score
+  - account_security
+  - account_closing
+  - account_update
+  - dispute_error
+  - bill_alerts
+  - automatic_payments
+  - financial_goals
+  - saving_money
+  - debt_plan
+  - expense_reduction
+  - credit_requirements
+  - new_account_requirements
+  - loan_application
+  - credit_card_application
+  - account_balance_check
+  - account_management_online
+  - customer_support_policy
+  - personalised_financial_advice
+  - account_statements
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+  - text: "Hello!"
+  - text: "Hi there! How can I help you?"
+  - text: "Hey! How can I assist you today?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+  - text: "Goodbye!"
+  - text: "See you soon!"
+  - text: "Take care!"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_thanks:
+  - text: "You're welcome!"
+  - text: "No problem!"
+  - text: "Glad to help!"
+
+  utter_recommendation:
+  - text: "Based on your previous transaction you may save up to"
+  - text: "Based on your previous purchases, you might like product Y."
+  - text: "Product Z has been very popular among our customers."
+  - text: "Our featured product this month is A. Would you like to learn more about it?"
+
+  utter_budget_creation:
+  - text: "Absolutely, I can help you create a budget. Let's start by understanding your monthly income and expenses."
+
+  utter_transaction_history:
+  - text: "You can view your transaction history in the 'Transactions' section of our online portal or mobile app. Would you like me to guide you there?"
+
+  utter_credit_score:
+  - text: "Your credit score is important because it impacts the interest rates you get on loans and credit cards. I can help you understand how it's calculated and provide tips to improve it. Would you like to continue?"
+
+  utter_account_security:
+  - text: "We use advanced encryption and fraud detection systems to protect your personal and financial information. I can provide more detailed tips to help you enhance your account security. Interested?"
+
+  utter_account_closing:
+  - text: "Closing an account with us involves a few steps. Are you sure you want to close your account? I can guide you through the process."
+
+  utter_account_update:
+  - text: "You can update your personal information through our online portal or mobile app. Need help with the process?"
+
+  utter_dispute_error:
+  - text: "I'm sorry to hear about the error. I can guide you through the process of disputing an error on your credit report. Ready to proceed?"
+
+  utter_bill_alerts:
+  - text: "Yes, you can set up alerts for bill due dates and significant account changes through our online portal or mobile app. Would you like assistance in setting these up?"
+
+  utter_automatic_payments:
+  - text: "You can set up automatic payments in the 'Payments' section of our online portal or mobile app. Can I guide you through the steps?"
+
+  utter_financial_goals:
+  - text: "Absolutely! Let's start by discussing your financial goals. Do you have any specific goals in mind?"
+
+  utter_saving_money:
+  - text: "There are many strategies to save money and boost your savings. One of the effective ways is to create a budget and stick to it. Would you like some more tips?"
+
+  utter_debt_plan:
+  - text: "I can definitely assist you with that. Let's start by looking at your current debts and interest rates."
+
+  utter_expense_reduction:
+  - text: "Absolutely. Let's start by reviewing your expenses. Can you provide me with details about your monthly expenses?"
+
+  utter_credit_requirements:
+  - text: "The credit score requirement varies based on the financial product. For example, to apply for product X, you need a credit score of Y. Can you specify the product you're interested in?"
+
+  utter_new_account_requirements:
+  - text: "To open a new account, you generally need to provide some personal information and meet certain eligibility requirements. Do you have a specific account type in mind?"
+
+  utter_loan_application:
+  - text: "You can apply for a loan through our website or app. Would you like help with the application process?"
+
+  utter_credit_card_application:
+  - text: "You can apply for a credit card via our online portal or mobile app. Need assistance with the application process?"
+
+  utter_account_balance_check:
+  - text: "You can check your account balance through our online portal or mobile app. Can I guide you to that feature?"
+
+  utter_account_management_online:
+  - text: "Our online portal and mobile app provide several options for managing your account, such as viewing transactions, transferring money, and updating your profile. Can I help you with a specific task?"
+
+  utter_customer_support_policy:
+  - text: "Our customer support team is available 24/7 to help you with any questions or issues. You can contact us via phone, email, or live chat. How may I assist you today?"
+
+  utter_personalised_financial_advice:
+  - text: "I can definitely provide some general advice. For detailed personalized financial advice, it would be best to consult with our financial advisors. Would you like to schedule a consultation?"
+
+  utter_account_statements:
+  - text: "You can view your transaction history and download account statements in the 'Statements' section of our online portal or mobile app. Can I guide you there?"
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

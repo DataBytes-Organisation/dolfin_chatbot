@@ -1,0 +1,150 @@
+version: "3.1"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: Express Gratitude
+  steps:
+  - intent: thanks
+  - action: utter_thanks
+
+- story: Request Recommendation
+  steps:
+  - intent: recommendation
+  - action: utter_recommendation
+
+- story: Start Budget Creation
+  steps:
+  - intent: budget_creation
+  - action: utter_budget_creation
+
+- story: View Transaction History
+  steps:
+  - intent: transaction_history
+  - action: utter_transaction_history
+
+- story: Understand Credit Score
+  steps:
+  - intent: credit_score
+  - action: utter_credit_score
+
+- story: Account Security Inquiry
+  steps:
+  - intent: account_security
+  - action: utter_account_security
+
+- story: Account Closing Process
+  steps:
+  - intent: account_closing
+  - action: utter_account_closing
+
+- story: Update Account Information
+  steps:
+  - intent: account_update
+  - action: utter_account_update
+
+- story: Dispute Credit Report Error
+  steps:
+  - intent: dispute_error
+  - action: utter_dispute_error
+
+- story: Set Up Bill Alerts
+  steps:
+  - intent: bill_alerts
+  - action: utter_bill_alerts
+
+- story: Set Up Automatic Payments
+  steps:
+  - intent: automatic_payments
+  - action: utter_automatic_payments
+
+- story: Financial Planning
+  steps:
+  - intent: financial_goals
+  - action: utter_financial_goals
+
+- story: Saving Money Strategies
+  steps:
+  - intent: saving_money
+  - action: utter_saving_money
+
+- story: Debt Management
+  steps:
+  - intent: debt_plan
+  - action: utter_debt_plan
+
+- story: Reduce Expenses
+  steps:
+  - intent: expense_reduction
+  - action: utter_expense_reduction
+
+- story: Check Credit Requirements
+  steps:
+  - intent: credit_requirements
+  - action: utter_credit_requirements
+
+- story: Open New Account
+  steps:
+  - intent: new_account_requirements
+  - action: utter_new_account_requirements
+
+- story: Apply for a Loan
+  steps:
+  - intent: loan_application
+  - action: utter_loan_application
+
+- story: Apply for a Credit Card
+  steps:
+  - intent: credit_card_application
+  - action: utter_credit_card_application
+
+- story: Check Account Balance
+  steps:
+  - intent: account_balance_check
+  - action: utter_account_balance_check
+
+- story: Manage Account Online
+  steps:
+  - intent: account_management_online
+  - action: utter_account_management_online
+
+- story: Contact Customer Support
+  steps:
+  - intent: customer_support_policy
+  - action: utter_customer_support_policy
+
+- story: Request Personalized Financial Advice
+  steps:
+  - intent: personalised_financial_advice
+  - action: utter_personalised_financial_advice
+
+- story: View Account Statements
+  steps:
+  - intent: account_statements
+  - action: utter_account_statements

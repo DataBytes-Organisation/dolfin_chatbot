@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Rasa Core Visualisation</title>
+    <script src="https://dagrejs.github.io/project/dagre-d3/latest/dagre-d3.min.js"></script>
+    <script src="https://dagrejs.github.io/project/dagre/latest/dagre.min.js"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="https://dagrejs.github.io/project/graphlib-dot/v0.6.3/graphlib-dot.js"></script>
+</head>
+<body>
+<div id="errormsg" style="color: #b00"></div>
+<svg>
+    <style id="graph-style">
+        .node.invisible > rect {
+            display: none;
+        }
+
+        .node.start > rect {
+            fill: #7f7;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node.end > rect {
+            fill: #f77;
+            rx: 30;
+            ry: 18;
+        }
+
+        .node:not(.active) > rect, .node:not(.active) > .label {
+            opacity: 0.4;
+        }
+
+        .edgePath:not(.active) path {
+            opacity: 0.4;
+        }
+
+        .node.ellipsis > rect {
+            fill: #CCC;
+        }
+
+        .node.intent > rect {
+            fill: #7ff;
+        }
+
+        .node.dashed > rect {
+            stroke-dasharray: 5;
+        }
+
+        text {
+            font-weight: 300;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serf, serif;
+            font-size: 14px;
+            color: #1f1d1d;
+        }
+
+        .node rect {
+            stroke: #444;
+            fill: #fff;
+            stroke-width: 1.5px;
+        }
+
+        .edgePath path {
+            stroke: #333;
+            stroke-width: 1.5px;
+        }
+
+        svg {
+            position: fixed;
+            top: 10px;
+            left: 0;
+            height: 100%;
+            width: 100%
+        }
+    </style>
+    <g></g>
+</svg>
+<script>
+
+  function serveGraph() {
+    let oldInputGraphValue;
+
+    const url = 'visualization.dot';
+    const refreshInterval = 500;
+
+    // trigger a refresh by fetching an updated graph
+    setInterval(function () {
+      fetch(url).then(r => r.text()).then(dot => {
+        document.getElementById('errormsg').innerHTML = '';
+        if (oldInputGraphValue === dot) return;
+
+        oldInputGraphValue = dot;
+        drawGraph(dot);
+      }).catch(err => {
+        document.getElementById('errormsg').innerHTML =
+          'Failed to update plot. (' + err.message + ')';
+      });
+    }, refreshInterval);
+  }
+
+  function drawGraph(graph) {
+    let g = graphlibDot.read(graph);
+    // Set margins, if not present
+    if (!g.graph().hasOwnProperty("marginx") &&
+      !g.graph().hasOwnProperty("marginy")) {
+      g.graph().marginx = 20;
+      g.graph().marginy = 20;
+    }
+    g.graph().transition = function (selection) {
+      return selection.transition().duration(300);
+    };
+    // Render the graph into svg g
+    d3.select("svg g").call(render, g);
+  }
+  // Set up zoom support
+  const svg = d3.select("svg"),
+    inner = d3.select("svg g"),
+    zoom = d3.zoom().on("zoom", function () {
+      inner.attr("transform", d3.event.transform);
+    });
+  svg.call(zoom);
+
+  // Create and configure the renderer
+  const render = dagreD3.render();
+
+  let isClient = false;
+  isClient = true;
+
+  if (isClient) {
+    // Mark all nodes and their edges as active
+    cssRules = document.getElementById('graph-style').sheet.cssRules;
+    cssRules[3].style.opacity = 1;
+    cssRules[4].style.opacity = 1;
+
+    let graph;
+    graph = `digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class="", fontsize=12, label=utter_credit_score];
+2 [class="", fontsize=12, label=utter_account_security];
+3 [class="", fontsize=12, label=utter_account_closing];
+4 [class="", fontsize=12, label=utter_account_update];
+5 [class="", fontsize=12, label=utter_dispute_error];
+6 [class="", fontsize=12, label=utter_bill_alerts];
+7 [class="", fontsize=12, label=utter_automatic_payments];
+8 [class="", fontsize=12, label=utter_financial_goals];
+9 [class="", fontsize=12, label=utter_saving_money];
+10 [class="", fontsize=12, label=utter_debt_plan];
+11 [class="", fontsize=12, label=utter_expense_reduction];
+12 [class="", fontsize=12, label=utter_credit_requirements];
+13 [class="", fontsize=12, label=utter_new_account_requirements];
+14 [class="", fontsize=12, label=utter_loan_application];
+15 [class="", fontsize=12, label=utter_credit_card_application];
+16 [class="", fontsize=12, label=utter_account_balance_check];
+17 [class="", fontsize=12, label=utter_account_management_online];
+18 [class="", fontsize=12, label=utter_customer_support_policy];
+19 [class="", fontsize=12, label=utter_personalised_financial_advice];
+20 [class="", fontsize=12, label=utter_account_statements];
+21 [class="", fontsize=12, label=utter_greet];
+22 [class="", fontsize=12, label=utter_happy];
+24 [class="", fontsize=12, label=utter_cheer_up];
+25 [class="", fontsize=12, label=utter_did_that_help];
+30 [class="", fontsize=12, label=utter_goodbye];
+31 [class="", fontsize=12, label=utter_thanks];
+32 [class="", fontsize=12, label=utter_recommendation];
+33 [class="", fontsize=12, label=utter_budget_creation];
+34 [class="", fontsize=12, label=utter_transaction_history];
+35 [class="", fontsize=12, label="..."];
+38 [class="", fontsize=12, label=utter_iamabot];
+39 [class=intent, fillcolor=lightblue, label="Why is my credit score important?", shape=rect, style=filled];
+40 [class=intent, fillcolor=lightblue, label="What security measures do you have in place?", shape=rect, style=filled];
+41 [class=intent, fillcolor=lightblue, label="I want to close my account.", shape=rect, style=filled];
+42 [class=intent, fillcolor=lightblue, label="I want to update my account information.", shape=rect, style=filled];
+43 [class=intent, fillcolor=lightblue, label="There's an error on my credit report.", shape=rect, style=filled];
+44 [class=intent, fillcolor=lightblue, label="Can you send me alerts when there are significant changes to my account or when bills are due?", shape=rect, style=filled];
+45 [class=intent, fillcolor=lightblue, label="How can I set up automatic payments to ensure bills are paid on time?", shape=rect, style=filled];
+46 [class=intent, fillcolor=lightblue, label="Can you help me set financial goals and track my progress towards them?", shape=rect, style=filled];
+47 [class=intent, fillcolor=lightblue, label="What are some ways I can save money or earn more interest on my savings?", shape=rect, style=filled];
+48 [class=intent, fillcolor=lightblue, label="How can I set up a plan for paying off my debts, such as credit card balances or loans?", shape=rect, style=filled];
+49 [class=intent, fillcolor=lightblue, label="How can I cut costs?", shape=rect, style=filled];
+50 [class=intent, fillcolor=lightblue, label="What are the credit score requirements for your loans or credit cards?", shape=rect, style=filled];
+51 [class=intent, fillcolor=lightblue, label="I want to open a new account.", shape=rect, style=filled];
+52 [class=intent, fillcolor=lightblue, label="I want to apply for a loan.", shape=rect, style=filled];
+53 [class=intent, fillcolor=lightblue, label="I want to apply for a credit card.", shape=rect, style=filled];
+54 [class=intent, fillcolor=lightblue, label="Can you tell me my account balance?", shape=rect, style=filled];
+55 [class=intent, fillcolor=lightblue, label="What are the options for managing my account online?", shape=rect, style=filled];
+56 [class=intent, fillcolor=lightblue, label="What is your customer support policy?", shape=rect, style=filled];
+57 [class=intent, fillcolor=lightblue, label="I need financial advice.", shape=rect, style=filled];
+58 [class=intent, fillcolor=lightblue, label="How do I view my transaction history or download account statements?", shape=rect, style=filled];
+59 [class=intent, fillcolor=lightblue, label="let's go", shape=rect, style=filled];
+60 [class=intent, fillcolor=lightblue, label="Thank you", shape=rect, style=filled];
+61 [class=intent, fillcolor=lightblue, label="Can you recommend something?", shape=rect, style=filled];
+62 [class=intent, fillcolor=lightblue, label="Can you help me create a budget based on my income and expenses?", shape=rect, style=filled];
+63 [class=intent, fillcolor=lightblue, label="How do I view my transaction history?", shape=rect, style=filled];
+64 [class=intent, fillcolor=lightblue, label="super stoked", shape=rect, style=filled];
+65 [class=intent, fillcolor=lightblue, label="I am disappointed", shape=rect, style=filled];
+66 [class=intent, fillcolor=lightblue, label=indeed, shape=rect, style=filled];
+67 [class=intent, fillcolor=lightblue, label=never, shape=rect, style=filled];
+68 [class=intent, fillcolor=lightblue, label="bye bye", shape=rect, style=filled];
+69 [class=intent, fillcolor=lightblue, label="are you a bot?", shape=rect, style=filled];
+0 -> 35  [class="", key=NONE, label=""];
+0 -> 39  [class="", key=0];
+0 -> 40  [class="", key=0];
+0 -> 41  [class="", key=0];
+0 -> 42  [class="", key=0];
+0 -> 43  [class="", key=0];
+0 -> 44  [class="", key=0];
+0 -> 45  [class="", key=0];
+0 -> 46  [class="", key=0];
+0 -> 47  [class="", key=0];
+0 -> 48  [class="", key=0];
+0 -> 49  [class="", key=0];
+0 -> 50  [class="", key=0];
+0 -> 51  [class="", key=0];
+0 -> 52  [class="", key=0];
+0 -> 53  [class="", key=0];
+0 -> 54  [class="", key=0];
+0 -> 55  [class="", key=0];
+0 -> 56  [class="", key=0];
+0 -> 57  [class="", key=0];
+0 -> 58  [class="", key=0];
+0 -> 59  [class="", key=0];
+0 -> 60  [class="", key=0];
+0 -> 61  [class="", key=0];
+0 -> 62  [class="", key=0];
+0 -> 63  [class="", key=0];
+1 -> "-1"  [class="", key=NONE, label=""];
+2 -> "-1"  [class="", key=NONE, label=""];
+3 -> "-1"  [class="", key=NONE, label=""];
+4 -> "-1"  [class="", key=NONE, label=""];
+5 -> "-1"  [class="", key=NONE, label=""];
+6 -> "-1"  [class="", key=NONE, label=""];
+7 -> "-1"  [class="", key=NONE, label=""];
+8 -> "-1"  [class="", key=NONE, label=""];
+9 -> "-1"  [class="", key=NONE, label=""];
+10 -> "-1"  [class="", key=NONE, label=""];
+11 -> "-1"  [class="", key=NONE, label=""];
+12 -> "-1"  [class="", key=NONE, label=""];
+13 -> "-1"  [class="", key=NONE, label=""];
+14 -> "-1"  [class="", key=NONE, label=""];
+15 -> "-1"  [class="", key=NONE, label=""];
+16 -> "-1"  [class="", key=NONE, label=""];
+17 -> "-1"  [class="", key=NONE, label=""];
+18 -> "-1"  [class="", key=NONE, label=""];
+19 -> "-1"  [class="", key=NONE, label=""];
+20 -> "-1"  [class="", key=NONE, label=""];
+21 -> 64  [class="", key=0];
+21 -> 65  [class="", key=0];
+22 -> "-1"  [class="", key=NONE, label=""];
+24 -> 25  [class="", key=NONE, label=""];
+25 -> 66  [class="", key=0];
+25 -> 67  [class="", key=0];
+30 -> "-1"  [class="", key=NONE, label=""];
+31 -> "-1"  [class="", key=NONE, label=""];
+32 -> "-1"  [class="", key=NONE, label=""];
+33 -> "-1"  [class="", key=NONE, label=""];
+34 -> "-1"  [class="", key=NONE, label=""];
+35 -> 68  [class="", key=0];
+35 -> 69  [class="", key=0];
+38 -> "-1"  [class="", key=NONE, label=""];
+39 -> 1  [class="", key=0];
+40 -> 2  [class="", key=0];
+41 -> 3  [class="", key=0];
+42 -> 4  [class="", key=0];
+43 -> 5  [class="", key=0];
+44 -> 6  [class="", key=0];
+45 -> 7  [class="", key=0];
+46 -> 8  [class="", key=0];
+47 -> 9  [class="", key=0];
+48 -> 10  [class="", key=0];
+49 -> 11  [class="", key=0];
+50 -> 12  [class="", key=0];
+51 -> 13  [class="", key=0];
+52 -> 14  [class="", key=0];
+53 -> 15  [class="", key=0];
+54 -> 16  [class="", key=0];
+55 -> 17  [class="", key=0];
+56 -> 18  [class="", key=0];
+57 -> 19  [class="", key=0];
+58 -> 20  [class="", key=0];
+59 -> 21  [class="", key=0];
+60 -> 31  [class="", key=0];
+61 -> 32  [class="", key=0];
+62 -> 33  [class="", key=0];
+63 -> 34  [class="", key=0];
+64 -> 22  [class="", key=0];
+65 -> 24  [class="", key=0];
+66 -> 22  [class="", key=0];
+67 -> 30  [class="", key=0];
+68 -> 30  [class="", key=0];
+69 -> 38  [class="", key=0];
+}
+`;
+    drawGraph(graph);
+  } else {
+    serveGraph();
+  }
+
+
+</script>
+</body>
+</html>
